@@ -37,7 +37,7 @@ class ApiariesPage extends StatelessWidget {
                           onTap: () {
                             context.navigateTo(
                               HivesPageRoute(
-                                apiariesId: apiares.id.toString(),
+                                apiariesLineResponse: apiares,
                                 user: user,
                               ),
                             );

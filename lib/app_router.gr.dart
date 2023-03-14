@@ -15,6 +15,7 @@ import 'package:auto_route/auto_route.dart' as _i4;
 import 'package:flutter/material.dart' as _i5;
 
 import 'data/user.dart' as _i6;
+import 'http/models/apiaries_line_response.dart' as _i7;
 import 'pages/apiaries_page.dart' as _i3;
 import 'pages/hives_page.dart' as _i2;
 import 'pages/login_page.dart' as _i1;
@@ -37,8 +38,8 @@ class AppRouter extends _i4.RootStackRouter {
         routeData: routeData,
         child: _i2.HivesPage(
           key: args.key,
-          apiariesId: args.apiariesId,
           user: args.user,
+          apiariesLineResponse: args.apiariesLineResponse,
         ),
       );
     },
@@ -88,15 +89,15 @@ class LoginPageRoute extends _i4.PageRouteInfo<void> {
 class HivesPageRoute extends _i4.PageRouteInfo<HivesPageRouteArgs> {
   HivesPageRoute({
     _i5.Key? key,
-    required String apiariesId,
     required _i6.User user,
+    required _i7.ApiariesLineResponse apiariesLineResponse,
   }) : super(
           HivesPageRoute.name,
           path: '/hives-page',
           args: HivesPageRouteArgs(
             key: key,
-            apiariesId: apiariesId,
             user: user,
+            apiariesLineResponse: apiariesLineResponse,
           ),
         );
 
@@ -106,19 +107,19 @@ class HivesPageRoute extends _i4.PageRouteInfo<HivesPageRouteArgs> {
 class HivesPageRouteArgs {
   const HivesPageRouteArgs({
     this.key,
-    required this.apiariesId,
     required this.user,
+    required this.apiariesLineResponse,
   });
 
   final _i5.Key? key;
 
-  final String apiariesId;
-
   final _i6.User user;
+
+  final _i7.ApiariesLineResponse apiariesLineResponse;
 
   @override
   String toString() {
-    return 'HivesPageRouteArgs{key: $key, apiariesId: $apiariesId, user: $user}';
+    return 'HivesPageRouteArgs{key: $key, user: $user, apiariesLineResponse: $apiariesLineResponse}';
   }
 }
 

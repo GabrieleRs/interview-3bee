@@ -8,6 +8,7 @@ class HiveLineResponse with _$HiveLineResponse {
     @JsonKey(name: 'image_url') required String imageUrl,
     required String name,
     @JsonKey(name: 'external_id') required String externalId,
+    required int id,
   }) = _Initial;
   factory HiveLineResponse.fromJson(Map<String, dynamic> json) =>
       _$HiveLineResponseFromJson(json);

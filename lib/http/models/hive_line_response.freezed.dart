@@ -25,24 +25,28 @@ mixin _$HiveLineResponse {
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'external_id')
   String get externalId => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(@JsonKey(name: 'image_url') String imageUrl,
-            String name, @JsonKey(name: 'external_id') String externalId)
+    required TResult Function(
+            @JsonKey(name: 'image_url') String imageUrl,
+            String name,
+            @JsonKey(name: 'external_id') String externalId,
+            int id)
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(@JsonKey(name: 'image_url') String imageUrl, String name,
-            @JsonKey(name: 'external_id') String externalId)?
+            @JsonKey(name: 'external_id') String externalId, int id)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(@JsonKey(name: 'image_url') String imageUrl, String name,
-            @JsonKey(name: 'external_id') String externalId)?
+            @JsonKey(name: 'external_id') String externalId, int id)?
         initial,
     required TResult orElse(),
   }) =>
@@ -78,7 +82,8 @@ abstract class $HiveLineResponseCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'image_url') String imageUrl,
       String name,
-      @JsonKey(name: 'external_id') String externalId});
+      @JsonKey(name: 'external_id') String externalId,
+      int id});
 }
 
 /// @nodoc
@@ -97,6 +102,7 @@ class _$HiveLineResponseCopyWithImpl<$Res, $Val extends HiveLineResponse>
     Object? imageUrl = null,
     Object? name = null,
     Object? externalId = null,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
       imageUrl: null == imageUrl
@@ -111,6 +117,10 @@ class _$HiveLineResponseCopyWithImpl<$Res, $Val extends HiveLineResponse>
           ? _value.externalId
           : externalId // ignore: cast_nullable_to_non_nullable
               as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -126,7 +136,8 @@ abstract class _$$_InitialCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'image_url') String imageUrl,
       String name,
-      @JsonKey(name: 'external_id') String externalId});
+      @JsonKey(name: 'external_id') String externalId,
+      int id});
 }
 
 /// @nodoc
@@ -142,6 +153,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? imageUrl = null,
     Object? name = null,
     Object? externalId = null,
+    Object? id = null,
   }) {
     return _then(_$_Initial(
       imageUrl: null == imageUrl
@@ -156,6 +168,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.externalId
           : externalId // ignore: cast_nullable_to_non_nullable
               as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -166,7 +182,8 @@ class _$_Initial implements _Initial {
   const _$_Initial(
       {@JsonKey(name: 'image_url') required this.imageUrl,
       required this.name,
-      @JsonKey(name: 'external_id') required this.externalId});
+      @JsonKey(name: 'external_id') required this.externalId,
+      required this.id});
 
   factory _$_Initial.fromJson(Map<String, dynamic> json) =>
       _$$_InitialFromJson(json);
@@ -179,10 +196,12 @@ class _$_Initial implements _Initial {
   @override
   @JsonKey(name: 'external_id')
   final String externalId;
+  @override
+  final int id;
 
   @override
   String toString() {
-    return 'HiveLineResponse.initial(imageUrl: $imageUrl, name: $name, externalId: $externalId)';
+    return 'HiveLineResponse.initial(imageUrl: $imageUrl, name: $name, externalId: $externalId, id: $id)';
   }
 
   @override
@@ -194,12 +213,13 @@ class _$_Initial implements _Initial {
                 other.imageUrl == imageUrl) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.externalId, externalId) ||
-                other.externalId == externalId));
+                other.externalId == externalId) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, imageUrl, name, externalId);
+  int get hashCode => Object.hash(runtimeType, imageUrl, name, externalId, id);
 
   @JsonKey(ignore: true)
   @override
@@ -210,33 +230,36 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(@JsonKey(name: 'image_url') String imageUrl,
-            String name, @JsonKey(name: 'external_id') String externalId)
+    required TResult Function(
+            @JsonKey(name: 'image_url') String imageUrl,
+            String name,
+            @JsonKey(name: 'external_id') String externalId,
+            int id)
         initial,
   }) {
-    return initial(imageUrl, name, externalId);
+    return initial(imageUrl, name, externalId, id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(@JsonKey(name: 'image_url') String imageUrl, String name,
-            @JsonKey(name: 'external_id') String externalId)?
+            @JsonKey(name: 'external_id') String externalId, int id)?
         initial,
   }) {
-    return initial?.call(imageUrl, name, externalId);
+    return initial?.call(imageUrl, name, externalId, id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(@JsonKey(name: 'image_url') String imageUrl, String name,
-            @JsonKey(name: 'external_id') String externalId)?
+            @JsonKey(name: 'external_id') String externalId, int id)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(imageUrl, name, externalId);
+      return initial(imageUrl, name, externalId, id);
     }
     return orElse();
   }
@@ -279,10 +302,10 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements HiveLineResponse {
   const factory _Initial(
-          {@JsonKey(name: 'image_url') required final String imageUrl,
-          required final String name,
-          @JsonKey(name: 'external_id') required final String externalId}) =
-      _$_Initial;
+      {@JsonKey(name: 'image_url') required final String imageUrl,
+      required final String name,
+      @JsonKey(name: 'external_id') required final String externalId,
+      required final int id}) = _$_Initial;
 
   factory _Initial.fromJson(Map<String, dynamic> json) = _$_Initial.fromJson;
 
@@ -294,6 +317,8 @@ abstract class _Initial implements HiveLineResponse {
   @override
   @JsonKey(name: 'external_id')
   String get externalId;
+  @override
+  int get id;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

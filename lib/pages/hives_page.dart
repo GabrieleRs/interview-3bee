@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interview_3bee/http/models/apiaries_line_response.dart';
 
 import '../data/user.dart';
 import '../http/models/hive_line_response.dart';
 import 'cubit/hives_page_cubit.dart';
 
 class HivesPage extends StatelessWidget {
-  final String apiariesId;
   final User user;
-  const HivesPage({super.key, required this.apiariesId, required this.user});
+  final ApiariesLineResponse apiariesLineResponse;
+  const HivesPage(
+      {super.key, required this.user, required this.apiariesLineResponse});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HivesPageCubit()..fetchHives(apiariesId, user),
+      create: (context) => HivesPageCubit()
+        ..fetchHives(apiariesLineResponse.id.toString(), user),
       child: Scaffold(
           appBar: AppBar(
-            title: Text('Hives for $apiariesId'),
+            title: Text('Hives for ${apiariesLineResponse.id.toString()}'),
           ),
           body: Center(
             child: BlocBuilder<HivesPageCubit, HivesPageState>(
@@ -29,7 +32,16 @@ class HivesPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: hives.results.length,
                       itemBuilder: (context, index) {
-                        return HiveCard(hive: hives.results[index]);
+                        final hive = hives.results[index];
+                        final weights = apiariesLineResponse.weights["delta"]
+                            [hive.id.toString()] as Map<String, dynamic>;
+                        final lastEntry = weights.entries.last;
+
+                        return HiveCard(
+                            hive: hive,
+                            weight: lastEntry.value,
+                            lastUpdate: DateTime.fromMillisecondsSinceEpoch(
+                                int.parse(lastEntry.key) * 1000));
                       },
                     );
                   },
@@ -41,8 +53,14 @@ class HivesPage extends StatelessWidget {
 }
 
 class HiveCard extends StatelessWidget {
+  final num weight;
+  final DateTime lastUpdate;
   final HiveLineResponse hive;
-  const HiveCard({super.key, required this.hive});
+  const HiveCard(
+      {super.key,
+      required this.hive,
+      required this.weight,
+      required this.lastUpdate});
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +74,7 @@ class HiveCard extends StatelessWidget {
         semanticContainer: true,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         shape: const RoundedRectangleBorder(
-          side: BorderSide(
-            color: Colors.green,
-          ),
+          side: BorderSide(color: Colors.green, width: 3),
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         child: Stack(fit: StackFit.expand, children: [
@@ -79,17 +95,37 @@ class HiveCard extends StatelessWidget {
               ),
               Expanded(child: Container()),
               Container(
+                  decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20),
+                          bottomRight: Radius.circular(20))),
                   width: 100,
                   height: 30,
-                  color: Colors.green,
-                  child: Center(child: Text('TODO :(', style: whiteTextStyle))),
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 8),
+                      Text(weight.toStringAsFixed(2), style: whiteTextStyle),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 6.0),
+                            child: Text('kg',
+                                style: whiteTextStyle.copyWith(fontSize: 10)),
+                          ),
+                        ],
+                      )
+                    ],
+                  )),
               Expanded(child: Container()),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('TODO :(', style: whiteTextStyle),
+                    Text(
+                        '${lastUpdate.day}/${lastUpdate.month}/${lastUpdate.year}',
+                        style: whiteTextStyle),
                     Text(hive.externalId.substring(hive.externalId.length - 8),
                         style: whiteTextStyle),
                   ],

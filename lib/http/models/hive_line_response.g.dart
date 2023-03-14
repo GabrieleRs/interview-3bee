@@ -10,6 +10,7 @@ _$_Initial _$$_InitialFromJson(Map<String, dynamic> json) => _$_Initial(
       imageUrl: json['image_url'] as String,
       name: json['name'] as String,
       externalId: json['external_id'] as String,
+      id: json['id'] as int,
     );
 
 Map<String, dynamic> _$$_InitialToJson(_$_Initial instance) =>
@@ -17,4 +18,5 @@ Map<String, dynamic> _$$_InitialToJson(_$_Initial instance) =>
       'image_url': instance.imageUrl,
       'name': instance.name,
       'external_id': instance.externalId,
+      'id': instance.id,
     };
