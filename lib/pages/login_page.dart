@@ -46,13 +46,6 @@ class _LoginPageState extends State<LoginPage> {
                           ? 'Please enter a password'
                           : null,
                     ),
-                    TextFormField(
-                        onSaved: (newValue) => apiariesId = newValue!,
-                        decoration:
-                            const InputDecoration(labelText: 'Apiaries ID'),
-                        validator: (value) => (value == null || value.isEmpty)
-                            ? 'Please enter an Apiaries ID'
-                            : null),
                     BlocConsumer<LoginPageCubit, LoginPageState>(
                         builder: ((context, state) {
                           return Column(
@@ -70,11 +63,10 @@ class _LoginPageState extends State<LoginPage> {
                                   },
                                   child: const Text('Login')),
                               state.maybeWhen(
-                                loading: (username, password, apiariesId) =>
+                                loading: (username, password) =>
                                     const CircularProgressIndicator(),
-                                failure:
-                                    (username, password, apiariesId, error) =>
-                                        Text(error),
+                                failure: (username, password, error) =>
+                                    Text(error),
                                 orElse: () => Container(),
                               ),
                             ],
@@ -82,11 +74,9 @@ class _LoginPageState extends State<LoginPage> {
                         }),
                         listener: ((context, state) => {
                               state.maybeWhen(
-                                success:
-                                    (username, password, apiariesId, user) {
+                                success: (username, password, user) {
                                   context.navigateTo(
-                                    HivesPageRoute(
-                                        apiariesId: apiariesId, user: user),
+                                    ApiariesPageRoute(user: user),
                                   );
                                 },
                                 orElse: () {},

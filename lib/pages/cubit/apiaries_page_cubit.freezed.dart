@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'login_page_cubit.dart';
+part of 'apiaries_page_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,31 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$LoginPageState {
+mixin _$ApiariesPageState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String username, String password) loading,
-    required TResult Function(String username, String password, User user)
-        success,
-    required TResult Function(String username, String password, String error)
-        failure,
+    required TResult Function() loading,
+    required TResult Function(ApiariesListResponse apiaries) success,
+    required TResult Function(String error) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String username, String password)? loading,
-    TResult? Function(String username, String password, User user)? success,
-    TResult? Function(String username, String password, String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(ApiariesListResponse apiaries)? success,
+    TResult? Function(String error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String username, String password)? loading,
-    TResult Function(String username, String password, User user)? success,
-    TResult Function(String username, String password, String error)? failure,
+    TResult Function()? loading,
+    TResult Function(ApiariesListResponse apiaries)? success,
+    TResult Function(String error)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,16 +69,16 @@ mixin _$LoginPageState {
 }
 
 /// @nodoc
-abstract class $LoginPageStateCopyWith<$Res> {
-  factory $LoginPageStateCopyWith(
-          LoginPageState value, $Res Function(LoginPageState) then) =
-      _$LoginPageStateCopyWithImpl<$Res, LoginPageState>;
+abstract class $ApiariesPageStateCopyWith<$Res> {
+  factory $ApiariesPageStateCopyWith(
+          ApiariesPageState value, $Res Function(ApiariesPageState) then) =
+      _$ApiariesPageStateCopyWithImpl<$Res, ApiariesPageState>;
 }
 
 /// @nodoc
-class _$LoginPageStateCopyWithImpl<$Res, $Val extends LoginPageState>
-    implements $LoginPageStateCopyWith<$Res> {
-  _$LoginPageStateCopyWithImpl(this._value, this._then);
+class _$ApiariesPageStateCopyWithImpl<$Res, $Val extends ApiariesPageState>
+    implements $ApiariesPageStateCopyWith<$Res> {
+  _$ApiariesPageStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -97,7 +95,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$LoginPageStateCopyWithImpl<$Res, _$_Initial>
+    extends _$ApiariesPageStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -110,7 +108,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'LoginPageState.initial()';
+    return 'ApiariesPageState.initial()';
   }
 
   @override
@@ -126,11 +124,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String username, String password) loading,
-    required TResult Function(String username, String password, User user)
-        success,
-    required TResult Function(String username, String password, String error)
-        failure,
+    required TResult Function() loading,
+    required TResult Function(ApiariesListResponse apiaries) success,
+    required TResult Function(String error) failure,
   }) {
     return initial();
   }
@@ -139,9 +135,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String username, String password)? loading,
-    TResult? Function(String username, String password, User user)? success,
-    TResult? Function(String username, String password, String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(ApiariesListResponse apiaries)? success,
+    TResult? Function(String error)? failure,
   }) {
     return initial?.call();
   }
@@ -150,9 +146,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String username, String password)? loading,
-    TResult Function(String username, String password, User user)? success,
-    TResult Function(String username, String password, String error)? failure,
+    TResult Function()? loading,
+    TResult Function(ApiariesListResponse apiaries)? success,
+    TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -199,7 +195,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements LoginPageState {
+abstract class _Initial implements ApiariesPageState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -208,106 +204,68 @@ abstract class _$$_LoadingCopyWith<$Res> {
   factory _$$_LoadingCopyWith(
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String username, String password});
 }
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$LoginPageStateCopyWithImpl<$Res, _$_Loading>
+    extends _$ApiariesPageStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? username = null,
-    Object? password = null,
-  }) {
-    return _then(_$_Loading(
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_Loading implements _Loading {
-  const _$_Loading({required this.username, required this.password});
-
-  @override
-  final String username;
-  @override
-  final String password;
+  const _$_Loading();
 
   @override
   String toString() {
-    return 'LoginPageState.loading(username: $username, password: $password)';
+    return 'ApiariesPageState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Loading &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.password, password) ||
-                other.password == password));
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, username, password);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
-      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String username, String password) loading,
-    required TResult Function(String username, String password, User user)
-        success,
-    required TResult Function(String username, String password, String error)
-        failure,
+    required TResult Function() loading,
+    required TResult Function(ApiariesListResponse apiaries) success,
+    required TResult Function(String error) failure,
   }) {
-    return loading(username, password);
+    return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String username, String password)? loading,
-    TResult? Function(String username, String password, User user)? success,
-    TResult? Function(String username, String password, String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(ApiariesListResponse apiaries)? success,
+    TResult? Function(String error)? failure,
   }) {
-    return loading?.call(username, password);
+    return loading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String username, String password)? loading,
-    TResult Function(String username, String password, User user)? success,
-    TResult Function(String username, String password, String error)? failure,
+    TResult Function()? loading,
+    TResult Function(ApiariesListResponse apiaries)? success,
+    TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(username, password);
+      return loading();
     }
     return orElse();
   }
@@ -350,16 +308,8 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements LoginPageState {
-  const factory _Loading(
-      {required final String username,
-      required final String password}) = _$_Loading;
-
-  String get username;
-  String get password;
-  @JsonKey(ignore: true)
-  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _Loading implements ApiariesPageState {
+  const factory _Loading() = _$_Loading;
 }
 
 /// @nodoc
@@ -368,14 +318,14 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({String username, String password, User user});
+  $Res call({ApiariesListResponse apiaries});
 
-  $UserCopyWith<$Res> get user;
+  $ApiariesListResponseCopyWith<$Res> get apiaries;
 }
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$LoginPageStateCopyWithImpl<$Res, _$_Success>
+    extends _$ApiariesPageStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
       : super(_value, _then);
@@ -383,31 +333,21 @@ class __$$_SuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = null,
-    Object? password = null,
-    Object? user = null,
+    Object? apiaries = null,
   }) {
     return _then(_$_Success(
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User,
+      apiaries: null == apiaries
+          ? _value.apiaries
+          : apiaries // ignore: cast_nullable_to_non_nullable
+              as ApiariesListResponse,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
+  $ApiariesListResponseCopyWith<$Res> get apiaries {
+    return $ApiariesListResponseCopyWith<$Res>(_value.apiaries, (value) {
+      return _then(_value.copyWith(apiaries: value));
     });
   }
 }
@@ -415,19 +355,14 @@ class __$$_SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(
-      {required this.username, required this.password, required this.user});
+  const _$_Success({required this.apiaries});
 
   @override
-  final String username;
-  @override
-  final String password;
-  @override
-  final User user;
+  final ApiariesListResponse apiaries;
 
   @override
   String toString() {
-    return 'LoginPageState.success(username: $username, password: $password, user: $user)';
+    return 'ApiariesPageState.success(apiaries: $apiaries)';
   }
 
   @override
@@ -435,15 +370,12 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.apiaries, apiaries) ||
+                other.apiaries == apiaries));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, username, password, user);
+  int get hashCode => Object.hash(runtimeType, apiaries);
 
   @JsonKey(ignore: true)
   @override
@@ -455,37 +387,35 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String username, String password) loading,
-    required TResult Function(String username, String password, User user)
-        success,
-    required TResult Function(String username, String password, String error)
-        failure,
+    required TResult Function() loading,
+    required TResult Function(ApiariesListResponse apiaries) success,
+    required TResult Function(String error) failure,
   }) {
-    return success(username, password, user);
+    return success(apiaries);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String username, String password)? loading,
-    TResult? Function(String username, String password, User user)? success,
-    TResult? Function(String username, String password, String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(ApiariesListResponse apiaries)? success,
+    TResult? Function(String error)? failure,
   }) {
-    return success?.call(username, password, user);
+    return success?.call(apiaries);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String username, String password)? loading,
-    TResult Function(String username, String password, User user)? success,
-    TResult Function(String username, String password, String error)? failure,
+    TResult Function()? loading,
+    TResult Function(ApiariesListResponse apiaries)? success,
+    TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(username, password, user);
+      return success(apiaries);
     }
     return orElse();
   }
@@ -528,15 +458,11 @@ class _$_Success implements _Success {
   }
 }
 
-abstract class _Success implements LoginPageState {
-  const factory _Success(
-      {required final String username,
-      required final String password,
-      required final User user}) = _$_Success;
+abstract class _Success implements ApiariesPageState {
+  const factory _Success({required final ApiariesListResponse apiaries}) =
+      _$_Success;
 
-  String get username;
-  String get password;
-  User get user;
+  ApiariesListResponse get apiaries;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -548,12 +474,12 @@ abstract class _$$_FailureCopyWith<$Res> {
           _$_Failure value, $Res Function(_$_Failure) then) =
       __$$_FailureCopyWithImpl<$Res>;
   @useResult
-  $Res call({String username, String password, String error});
+  $Res call({String error});
 }
 
 /// @nodoc
 class __$$_FailureCopyWithImpl<$Res>
-    extends _$LoginPageStateCopyWithImpl<$Res, _$_Failure>
+    extends _$ApiariesPageStateCopyWithImpl<$Res, _$_Failure>
     implements _$$_FailureCopyWith<$Res> {
   __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
       : super(_value, _then);
@@ -561,19 +487,9 @@ class __$$_FailureCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = null,
-    Object? password = null,
     Object? error = null,
   }) {
     return _then(_$_Failure(
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -585,19 +501,14 @@ class __$$_FailureCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Failure implements _Failure {
-  const _$_Failure(
-      {required this.username, required this.password, required this.error});
+  const _$_Failure({required this.error});
 
-  @override
-  final String username;
-  @override
-  final String password;
   @override
   final String error;
 
   @override
   String toString() {
-    return 'LoginPageState.failure(username: $username, password: $password, error: $error)';
+    return 'ApiariesPageState.failure(error: $error)';
   }
 
   @override
@@ -605,15 +516,11 @@ class _$_Failure implements _Failure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Failure &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, username, password, error);
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
@@ -625,37 +532,35 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String username, String password) loading,
-    required TResult Function(String username, String password, User user)
-        success,
-    required TResult Function(String username, String password, String error)
-        failure,
+    required TResult Function() loading,
+    required TResult Function(ApiariesListResponse apiaries) success,
+    required TResult Function(String error) failure,
   }) {
-    return failure(username, password, error);
+    return failure(error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String username, String password)? loading,
-    TResult? Function(String username, String password, User user)? success,
-    TResult? Function(String username, String password, String error)? failure,
+    TResult? Function()? loading,
+    TResult? Function(ApiariesListResponse apiaries)? success,
+    TResult? Function(String error)? failure,
   }) {
-    return failure?.call(username, password, error);
+    return failure?.call(error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String username, String password)? loading,
-    TResult Function(String username, String password, User user)? success,
-    TResult Function(String username, String password, String error)? failure,
+    TResult Function()? loading,
+    TResult Function(ApiariesListResponse apiaries)? success,
+    TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(username, password, error);
+      return failure(error);
     }
     return orElse();
   }
@@ -698,14 +603,9 @@ class _$_Failure implements _Failure {
   }
 }
 
-abstract class _Failure implements LoginPageState {
-  const factory _Failure(
-      {required final String username,
-      required final String password,
-      required final String error}) = _$_Failure;
+abstract class _Failure implements ApiariesPageState {
+  const factory _Failure({required final String error}) = _$_Failure;
 
-  String get username;
-  String get password;
   String get error;
   @JsonKey(ignore: true)
   _$$_FailureCopyWith<_$_Failure> get copyWith =>

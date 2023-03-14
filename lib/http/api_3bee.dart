@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:interview_3bee/data/user.dart';
+import 'package:interview_3bee/http/models/apiaries_line_response.dart';
 import 'package:interview_3bee/http/models/hive_list_response.dart';
 
+import 'models/apiaries_list_response.dart';
 import 'models/login_response.dart';
 
 class Api3Bee {
@@ -46,6 +48,21 @@ class Api3Bee {
       return HiveListResponse.fromJson(jsonDecode(response.body));
     } else {
       throw Exception('Failed to fetch hives');
+    }
+  }
+
+  Future<ApiariesListResponse> fetchApiaries(User user) async {
+    var url = Uri.https(host, '$api/apiaries');
+    final response = await http.get(
+      url,
+      headers: {
+        'Authorization': 'Bearer ${user.accessToken}',
+      },
+    );
+    if (response.statusCode == 200) {
+      return ApiariesListResponse.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to fetch ');
     }
   }
 }

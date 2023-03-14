@@ -17,26 +17,23 @@ class LoginPageCubit extends Cubit<LoginPageState> {
     required String apiariesId,
   }) async {
     state.maybeWhen(
-      loading: (username, password, apiariesId) {},
+      loading: (username, password) {},
       orElse: () async {
         emit(LoginPageState.loading(
           username: username,
           password: password,
-          apiariesId: apiariesId,
         ));
         try {
           final user = await api.login(username, password);
           emit(LoginPageState.success(
             username: username,
             password: password,
-            apiariesId: apiariesId,
             user: user,
           ));
         } catch (e) {
           emit(LoginPageState.failure(
             username: username,
             password: password,
-            apiariesId: apiariesId,
             error: e.toString(),
           ));
         }
